@@ -1,0 +1,175 @@
+
+<style>
+    .console_signin{
+       color: white;
+       position: relative;
+       top: 50px;
+       display: inline-block;
+    }
+    .console_div{
+        float: left;
+        display: inline-block;
+        background-color: grey;
+        width: 200px;
+        height: 210px;
+    }
+    .one{
+       float: right;
+       height: 65px;
+       width: calc(100% - 200px);
+       position: relative;
+       background-color: red;
+       display: inline-block;
+    }
+    .two{
+        float: right;
+       height: 60px;
+       width: calc(100% - 200px);
+       background-color: lightskyblue;
+       display: inline-block;
+    }
+    .three{
+        float: right;
+       height: 85px;
+       width: calc(100% - 200px);
+       background-color: blueviolet;
+       display: inline-block;
+    }
+    .LINUX{
+        background-color: turquoise;
+    }
+     /* Basic styles for tabs */
+     .tab-container {
+            text-align: center; /* Align tabs to center */
+            
+        }
+        .tab {
+            display: inline-block;
+            padding: 0px 20px;
+            height: 85;
+            margin-right: 5px;
+            background-color: turquoise;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .active {
+            background-color: #fff;
+            border-bottom: 0.5px solid #fff;
+        }
+        .icon{
+            height: 85px;
+            width: 90px;
+            display: inline-block;
+        }
+
+
+</style>
+<head>
+    <title>
+        Manoj Workspace
+    </title>
+    <link rel="icon" href="https://my-vda.s3.eu-north-1.amazonaws.com/virtual_icon.jpg"
+</head>
+<body bgcolor="black">
+    <div class="console_div">
+        <center>
+            <a class="console_signin" href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_ap-southeast-2_b2bef8801a4b3fe4&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=eIluTJ7odGOOvtmuYZT2PmnR2L2tAe-iTI9TiK3vR9I&code_challenge_method=SHA-256">
+                <img src="https://my-vda.s3.eu-north-1.amazonaws.com/aws_icon.png" alt="AWS" width="130" height="100">
+                AWS_CONSOLE
+            </a>
+        </center>
+    </div>
+    <div class="one">
+        <center>
+            <h1 class="heading1">
+                MANOJ VIRTUAL ENVIRONMENTS
+            </h1>
+        </center>
+    </div>
+    <div class="two">
+        <center>
+            <h2 class="heading2">
+                |MANOJ|AWS|EC2|VMWARE|
+            </h2>
+        </center>
+    </div>
+    <div class="LINUX">
+        <div class="tab-container">
+            <div class="tab" onclick="openTab(event, 'LINUX')">
+                <img class="icon" src="https://my-vda.s3.eu-north-1.amazonaws.com/linux-icon-2048x2048-sy06t4un.png" alt="LINUX">
+            </div>
+            <div class="tab" onclick="openTab(event, 'WINDOWS')">
+                <img class="icon" src="https://my-vda.s3.eu-north-1.amazonaws.com/images.jpg" alt="WINDOWS">
+            </div>
+            <div class="tab" onclick="openTab(event, 'AWSLIN')">
+                <img class="icon" src="https://my-vda.s3.eu-north-1.amazonaws.com/EC2_ICON.png" alt="EC2">
+            </div>
+            <div class="tab" onclick="openTab(event, 'OTHERS')">
+                <img class="icon" src="https://my-vda.s3.eu-north-1.amazonaws.com/Virtual_machine.png" alt="VMs">
+            </div>
+            <br>
+        </div>
+    </div>    
+    <div id="LINUX" class="tab-content">
+        <h3>Linux</h3>
+        <button onclick="launchApp()">Launch My App</button>
+    </div>
+    
+    <div id="WINDOWS" class="tab-content">
+        <h3>Windows</h3>
+        <form id="rdpForm" onsubmit="winrdp(event)">
+            <label for="ipAddress">IP Address:</label>
+            <input type="text" id="ipAddress" name="ipAddress" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Connect</button>
+    </div>
+    
+    <div id="AWSLIN" class="tab-content">
+        <h3>AWS Linux</h3>
+        <p>Content for the AWS Linux tab.</p>
+    </div>
+    
+    <div id="OTHERS" class="tab-content">
+        <h3>Others</h3>
+        <p>Content for the Others tab.</p>
+    </div>
+    
+    <script>
+        function launchApp() {
+            window.location.href = "C:/Users/manoj.selvaraj/Downloads/putty.exe";
+        }
+        function openTab(evt, tabName) {
+            // Get all elements with class="tab-content" and hide them
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+    
+            // Get all elements with class="tab" and remove the class "active"
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+    
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    
+        // Open the first tab by default
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tab").click();
+        });
+    </script>
+</body>
